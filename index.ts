@@ -6,7 +6,10 @@ import { Temporal } from "proposal-temporal";
 
 config();
 
-const server = createServer();
+const server = createServer((req, res) => {
+  res.write('Server is ok');
+  res.end();
+});
 
 let newApartment: ApartmentModel | null = null;
 
