@@ -1,10 +1,10 @@
 {
   "name": "ivan_minsk_apartment_bot",
-  "version": "1.0.0",
+  "version": "0.1.0",
   "description": "",
   "main": "index.ts",
   "scripts": {
-    "start": "yarn build --watch",
+    "start": "yarn build && node build.js",
     "build": "esbuild index.ts --bundle --outfile=build.js --target=node14.15 --platform=node"
   },
   "author": "",

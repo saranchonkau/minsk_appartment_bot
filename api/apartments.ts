@@ -52,15 +52,18 @@ export function getApartments(): Promise<ApartmentListResponse> {
   const url = new URL("https://r.onliner.by/sdapi/ak.api/search/apartments");
   const params = url.searchParams;
   params.append("rent_type[]", "1_room");
-  params.append("price[min]", "150");
-  params.append("price[max]", "500");
+  params.append("rent_type[]", "2_rooms");
+  params.append("price[min]", "200");
+  params.append("price[max]", "400");
   params.append("currency", "usd");
-  params.append("bounds[lb][lat]", "53.849283137485706");
-  params.append("bounds[lb][long]", "27.366820851088725");
-  params.append("bounds[rt][lat]", "53.954668315837715");
-  params.append("bounds[rt][long]", "27.5412288100731");
+  params.append("metro[]", "red_line");
+  params.append("metro[]", "blue_line");
+  params.append("bounds[lb][lat]", "53.62870756249745");
+  params.append("bounds[lb][long]", "27.14187910023304");
+  params.append("bounds[rt][lat]", "54.050871244278255");
+  params.append("bounds[rt][long]", "27.83951093617054");
   params.append("page", "1");
-  params.append("v", "0.03358886326053345");
+  params.append("order", "last_time_up:desc");
 
   return fetch<ApartmentListResponse>(url);
 }

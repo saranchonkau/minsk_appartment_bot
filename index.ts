@@ -7,7 +7,7 @@ import { Temporal } from "proposal-temporal";
 config();
 
 const server = createServer((req, res) => {
-  res.write('Server is ok');
+  res.write("Server is ok");
   res.end();
 });
 
@@ -20,9 +20,12 @@ function formatDate(isoDate: string): string {
 
 function convertApartmentToMessage(apartment: ApartmentModel): string {
   const rows = [
+    `ID: ${apartment.id}`,
     `Ссылка: ${apartment.url}`,
     `Цена: ${apartment.price.converted.USD.amount} USD (${apartment.price.converted.BYN.amount} BYN)`,
     `Обновлено: ${formatDate(apartment.last_time_up)}`,
+    `Адрес: ${apartment.location.address}`,
+    `v0.1.0`,
   ];
 
   return rows.join("\n");
@@ -47,5 +50,5 @@ function checkNewApartment() {
 server.listen(8080, () => {
   console.log("Server listen port: 8080");
 
-  setInterval(checkNewApartment, 20 * 1000);
+  setInterval(checkNewApartment, 10 * 1000);
 });
