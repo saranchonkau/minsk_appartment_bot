@@ -25,7 +25,7 @@ function convertApartmentToMessage(apartment: ApartmentModel): string {
     `Цена: ${apartment.price.converted.USD.amount} USD (${apartment.price.converted.BYN.amount} BYN)`,
     `Обновлено: ${formatDate(apartment.last_time_up)}`,
     `Адрес: ${apartment.location.address}`,
-    `v0.1.2`,
+    `v0.1.4`,
   ];
 
   return rows.join("\n");

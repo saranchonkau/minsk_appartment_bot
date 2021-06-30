@@ -53,6 +53,7 @@ export function getApartments(): Promise<ApartmentListResponse> {
   const params = url.searchParams;
   // params.append("rent_type[]", "1_room");
   params.append("rent_type[]", "2_rooms");
+  params.append("rent_type[]", "3_rooms");
   params.append("price[min]", "250");
   params.append("price[max]", "400");
   params.append("currency", "usd");
