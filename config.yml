@@ -1,0 +1,31 @@
+users:
+  - name: roman
+    config:
+      bot_token: 1882001057:AAETSpRteqa1R8zPpr61q7k0g-7v1A3DtRc
+      chat_id: 486740027
+      onliner_params:
+        - rent_type[]: 1_room
+        - rent_type[]: 2_rooms
+        - price[min]: 50
+        - price[max]: 220
+        - bounds[lb][lat]: 53.62870756249745
+        - bounds[lb][long]: 27.14187910023304
+        - bounds[rt][lat]: 54.050871244278255
+        - bounds[rt][long]: 27.83951093617054
+        - page: 1
+        - order: last_time_up:desc
+  - name: ivan
+    config:
+      bot_token: 1846245302:AAF62xZlF4260iTlPrnHy812OFXmNu0Iwlo
+      chat_id: 490087773
+      onliner_params:
+        - rent_type[]: 2_rooms
+        - rent_type[]: 3_rooms
+        - price[min]: 250
+        - price[max]: 400
+        - bounds[lb][lat]: 53.62870756249745
+        - bounds[lb][long]: 27.14187910023304
+        - bounds[rt][lat]: 54.050871244278255
+        - bounds[rt][long]: 27.83951093617054
+        - page: 1
+        - order: last_time_up:desc

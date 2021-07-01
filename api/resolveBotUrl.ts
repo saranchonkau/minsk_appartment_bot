@@ -1,9 +1,9 @@
 import { URL } from "url";
 
-export function resolveBotUrl(path: string): URL {
+export function resolveBotUrl(botToken: string, path: string): URL {
   const base = "https://api.telegram.org/bot<Bot_token>".replace(
     "<Bot_token>",
-    process.env.BOT_TOKEN
+    botToken
   );
 
   return new URL(base + path);

@@ -48,23 +48,20 @@ interface ApartmentListResponse {
   total: number;
 }
 
-export function getApartments(): Promise<ApartmentListResponse> {
+export function getApartments(
+  filterParams: Array<{ [key: string]: string | number }>
+): Promise<ApartmentListResponse> {
   const url = new URL("https://r.onliner.by/sdapi/ak.api/search/apartments");
   const params = url.searchParams;
-  // params.append("rent_type[]", "1_room");
-  params.append("rent_type[]", "2_rooms");
-  params.append("rent_type[]", "3_rooms");
-  params.append("price[min]", "250");
-  params.append("price[max]", "400");
-  params.append("currency", "usd");
-  params.append("metro[]", "red_line");
-  params.append("metro[]", "blue_line");
-  params.append("bounds[lb][lat]", "53.62870756249745");
-  params.append("bounds[lb][long]", "27.14187910023304");
-  params.append("bounds[rt][lat]", "54.050871244278255");
-  params.append("bounds[rt][long]", "27.83951093617054");
-  params.append("page", "1");
-  params.append("order", "last_time_up:desc");
+
+  const pairs: Array<[string, string | number]> = [];
+  for (let param of filterParams) {
+    pairs.push(...Object.entries(param));
+  }
+
+  for (let pair of pairs) {
+    params.append(pair[0], String(pair[1]));
+  }
 
   return fetch<ApartmentListResponse>(url);
 }
