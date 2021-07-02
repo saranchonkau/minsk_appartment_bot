@@ -5,7 +5,11 @@ import { sendMessage } from "./api/sendMessage";
 import { config, UserModel } from "./config";
 
 const server = createServer((req, res) => {
-  res.write("Server is ok");
+  if (req.url === "/users") {
+    res.write(JSON.stringify(config, null, 4));
+  } else {
+    res.write("Server is ok");
+  }
   res.end();
 });
 
@@ -27,7 +31,7 @@ function convertApartmentToMessage(
     `Цена: ${apartment.price.converted.USD.amount} USD (${apartment.price.converted.BYN.amount} BYN)`,
     `Обновлено: ${formatDate(apartment.last_time_up)}`,
     `Адрес: ${apartment.location.address}`,
-    `v0.1.6`,
+    `v0.1.7`,
   ];
 
   return rows.join("\n");

@@ -8,6 +8,7 @@ users:
         - rent_type[]: 2_rooms
         - price[min]: 50
         - price[max]: 250
+        - currency: usd
         - bounds[lb][lat]: 53.62870756249745
         - bounds[lb][long]: 27.14187910023304
         - bounds[rt][lat]: 54.050871244278255
@@ -23,6 +24,9 @@ users:
         - rent_type[]: 3_rooms
         - price[min]: 250
         - price[max]: 400
+        - currency: usd
+        - metro[]: red_line
+        - metro[]: blue_line
         - bounds[lb][lat]: 53.62870756249745
         - bounds[lb][long]: 27.14187910023304
         - bounds[rt][lat]: 54.050871244278255
