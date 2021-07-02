@@ -7,7 +7,7 @@ users:
         - rent_type[]: 1_room
         - rent_type[]: 2_rooms
         - price[min]: 50
-        - price[max]: 220
+        - price[max]: 250
         - bounds[lb][lat]: 53.62870756249745
         - bounds[lb][long]: 27.14187910023304
         - bounds[rt][lat]: 54.050871244278255
