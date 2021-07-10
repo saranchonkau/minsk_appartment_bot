@@ -48,7 +48,7 @@ interface ApartmentListResponse {
   total: number;
 }
 
-export function getApartments(
+export function getApartmentsFromOnliner(
   filterParams: Array<{ [key: string]: string | number }>
 ): Promise<ApartmentListResponse> {
   const url = new URL("https://r.onliner.by/sdapi/ak.api/search/apartments");
@@ -63,5 +63,5 @@ export function getApartments(
     params.append(pair[0], String(pair[1]));
   }
 
-  return fetch<ApartmentListResponse>(url);
+  return fetch<ApartmentListResponse>(url, { json: true });
 }

@@ -1,6 +1,6 @@
 {
   "name": "ivan_minsk_apartment_bot",
-  "version": "0.1.8",
+  "version": "0.1.9",
   "description": "",
   "main": "index.ts",
   "scripts": {
@@ -10,6 +10,7 @@
   "author": "",
   "license": "ISC",
   "dependencies": {
+    "cheerio": "^1.0.0-rc.10",
     "proposal-temporal": "^0.8.0",
     "yaml": "2.0.0-6"
   },

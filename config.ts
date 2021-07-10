@@ -8,6 +8,7 @@ export interface UserModel {
     bot_token: string;
     chat_id: number;
     onliner_params: Array<{ [key: string]: string | number }>;
+    realt_params: { url: string };
   };
 }
 

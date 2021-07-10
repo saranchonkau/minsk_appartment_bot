@@ -1,7 +1,11 @@
 import { request } from "https";
 import { URL } from "url";
 
-function fetch<T>(url: URL): Promise<T> {
+interface FetchOptions {
+  json?: boolean;
+}
+
+function fetch<T>(url: URL, options?: FetchOptions): Promise<T> {
   return new Promise((resolve, reject) => {
     const req = request(
       url,
@@ -9,14 +13,14 @@ function fetch<T>(url: URL): Promise<T> {
       (res) => {
         res.setEncoding("utf8");
 
-        let json = "";
+        let responseText = "";
 
         res.on("data", (chunk) => {
-          json += chunk;
+          responseText += chunk;
         });
 
         res.on("end", () => {
-          const data = JSON.parse(json);
+          const data = options?.json ? JSON.parse(responseText) : responseText;
           console.log(`<-- GET ${res.statusCode} ${url.toString()}`);
           resolve(data);
         });

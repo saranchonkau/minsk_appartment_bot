@@ -17,3 +17,5 @@ users:
         - bounds[rt][long]: 27.83951093617054
         - page: 1
         - order: last_time_up:desc
+      realt_params:
+        url: https://realt.by/rent/flat-for-long/?search=eJx9T8sOgjAQ%2FJpybnmE9uBB5D82pV2UCJS0VeHvhSpKTPAymZ3ZneyM0KO00KG3hmQFkqw8sMibRw%2B97OaxaJvros6MLiYpKRGnBQsesCQlI5wFfoysMZ17B60ncTTYRi1Z55AfZ%2FSjtEFJZ2UELScHptXrH3kEDv1tmGfpFGh0apPK9lz24zpjPVTT5lRLj2Dx3rjG9DuL7M%2BiRQUDWhjkq1BCv94lNIxR5aLmqKXgcUVFjSrNEmRU0KRO%2BBO%2BU3DU
