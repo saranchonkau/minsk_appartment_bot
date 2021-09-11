@@ -1,12 +1,9 @@
-import { URL } from "url";
-import fetch from "../fetch";
-
 enum Currency {
   USD = "USD",
   BYN = "BYN",
 }
 
-interface MoneyAmountModel {
+export interface MoneyAmountModel {
   amount: string;
   currency: Currency;
 }
@@ -35,33 +32,15 @@ export interface ApartmentModel {
   url: string;
 }
 
-interface PaginationModel {
+export interface PaginationModel {
   current: number;
   items: number;
   last: number;
   limit: number;
 }
 
-interface ApartmentListResponse {
+export interface ApartmentListResponse {
   apartments: Array<ApartmentModel>;
   page: PaginationModel;
   total: number;
-}
-
-export function getApartmentsFromOnliner(
-  filterParams: Array<{ [key: string]: string | number }>
-): Promise<ApartmentListResponse> {
-  const url = new URL("https://r.onliner.by/sdapi/ak.api/search/apartments");
-  const params = url.searchParams;
-
-  const pairs: Array<[string, string | number]> = [];
-  for (let param of filterParams) {
-    pairs.push(...Object.entries(param));
-  }
-
-  for (let pair of pairs) {
-    params.append(pair[0], String(pair[1]));
-  }
-
-  return fetch<ApartmentListResponse>(url, { json: true });
 }

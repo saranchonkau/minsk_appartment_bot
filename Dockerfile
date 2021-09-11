@@ -18,4 +18,4 @@ COPY . .
 RUN npm run build
 
 EXPOSE 8080
-CMD [ "node", "build.js" ]
+CMD [ "node", "dist/server.js" ]

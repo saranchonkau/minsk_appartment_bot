@@ -16,6 +16,6 @@ export interface ConfigModel {
   users: Array<UserModel>;
 }
 
-const configContent = readFileSync(path.resolve(__dirname, "config.yml"));
+const configContent = readFileSync(path.resolve(__dirname, "../config.yml"));
 
 export const config: ConfigModel = parse(configContent.toString());
