@@ -1,3 +1,5 @@
 const { app } = require("./app");
 
-app.build();
+app.build().then(() => {
+  process.exit();
+});
