@@ -3,6 +3,7 @@ const path = require("path");
 const chalk = require("chalk");
 const { fork } = require("child_process");
 const { rm } = require("fs/promises");
+const chokidar = require("chokidar");
 
 const APP_DIRECTORY = "src";
 const APP_ENTRY_POINT = path.join(APP_DIRECTORY, "index.ts");
@@ -62,8 +63,14 @@ class App {
     this.stop();
     this.start();
   }
+
+  onChange(changeHandler) {
+    chokidar
+      .watch(APP_DIRECTORY, { ignoreInitial: true })
+      .on("all", changeHandler);
+  }
 }
 
 const app = new App();
 
-module.exports = { app, APP_DIRECTORY };
+module.exports = { app };
