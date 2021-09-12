@@ -1,7 +1,7 @@
 const esbuild = require("esbuild");
 const path = require("path");
 const chalk = require("chalk");
-const { spawn } = require("child_process");
+const { fork } = require("child_process");
 const { rm } = require("fs/promises");
 
 const APP_DIRECTORY = "src";
@@ -49,20 +49,16 @@ class App {
   }
 
   start() {
-    console.log(chalk.greenBright("Starting..."));
-
-    this.appProcess = spawn("node", [APP_BUILD_FILE], { stdio: "inherit" });
+    this.appProcess = fork(APP_BUILD_FILE, { stdio: "inherit" });
   }
 
   stop() {
     if (this.appProcess) {
-      console.log(chalk.red("Killing app process..."));
       this.appProcess.kill();
     }
   }
 
   restart() {
-    console.log(chalk.yellow("Restarting..."));
     this.stop();
     this.start();
   }

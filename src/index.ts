@@ -26,8 +26,7 @@ config.users.map((user) => {
   }, 10_000);
 });
 
-function handleSignal(signal: string) {
-  console.log(chalk.yellow(`app Received ${signal}`));
+function handleSignal() {
   process.exit();
 }
 
@@ -35,7 +34,7 @@ process.on("SIGINT", handleSignal);
 process.on("SIGTERM", handleSignal);
 
 process.on("exit", () => {
-  console.log(chalk.redBright("app exit"));
+  console.log(chalk.gray("App exit"));
 });
 
 // const newRealtApartmentMap = new Map<string, RealtApartmentModel>();

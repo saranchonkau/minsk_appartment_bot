@@ -6,7 +6,7 @@
   "scripts": {
     "dev": "node scripts/dev.js",
     "prod": "node scripts/start.js",
-    "build": "node scripts/build.js"
+    "build": "tsc --noEmit && node scripts/build.js"
   },
   "author": "",
   "license": "ISC",

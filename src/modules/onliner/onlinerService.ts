@@ -69,8 +69,6 @@ export class OnlinerService {
   }
 
   shouldSendMessage(newestApartment: ApartmentModel) {
-    console.log("prev: ", this.previousApartment?.id);
-    console.log("new: ", newestApartment?.id);
     return this.previousApartment?.id !== newestApartment?.id;
   }
 }
