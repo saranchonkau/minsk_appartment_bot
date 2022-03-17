@@ -1,6 +1,6 @@
 const esbuild = require("esbuild");
 const path = require("path");
-const chalk = require("chalk");
+const pc = require("picocolors");
 const { fork } = require("child_process");
 const { rm } = require("fs/promises");
 const chokidar = require("chokidar");
@@ -39,7 +39,7 @@ class App {
       })
       .then((buildResult) => {
         const end = process.hrtime.bigint();
-        console.log(chalk.cyan(`Build took ${(end - start) / 1000_0000n}ms`));
+        console.log(pc.cyan(`Build took ${(end - start) / 1000_0000n}ms`));
 
         return buildResult;
       })

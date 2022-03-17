@@ -1,4 +1,4 @@
-import { Temporal } from "proposal-temporal";
+import { Temporal } from "@js-temporal/polyfill";
 
 export function formatMessageDate(isoDate: string): string {
   const instant = Temporal.Instant.from(isoDate);

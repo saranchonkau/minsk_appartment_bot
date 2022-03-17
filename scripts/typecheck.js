@@ -1,5 +1,5 @@
 const { spawn } = require("child_process");
-const chalk = require("chalk");
+const pc = require("picocolors");
 
 function runTypechecking() {
   const child = spawn("tsc", ["--watch", "--incremental", "--noEmit"], {
@@ -18,9 +18,9 @@ function runTypechecking() {
     }
 
     if (str.includes("error TS")) {
-      console.error(chalk.redBright(str));
+      console.error(pc.red(str));
     } else {
-      console.log(chalk.cyan(str));
+      console.log(pc.cyan(str));
     }
   }
 
