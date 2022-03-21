@@ -23,7 +23,7 @@ config.users.map((user) => {
   const onliner = new OnlinerService(user);
 
   setInterval(() => {
-    onliner.checkNewApartment();
+    onliner.checkNewApartment().catch(console.error);
   }, 10_000);
 });
 
